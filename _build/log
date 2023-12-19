@@ -1,0 +1,6 @@
+# dune init proj g4ip_prover
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /home/frank/.cache/dune/db
+# Workspace root: /home/frank/Dox/projects/ocaml_prover/g4ip_prover
+# Auto-detected concurrency: 4

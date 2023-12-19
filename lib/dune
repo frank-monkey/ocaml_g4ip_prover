@@ -1,0 +1,2 @@
+(library
+ (name g4ip_prover))
