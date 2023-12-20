@@ -1,4 +1,5 @@
 (executable
  (public_name g4ip_prover)
  (name main)
- (libraries g4ip_prover))
+ (libraries g4ip_prover)
+ )

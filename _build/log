@@ -1,6 +1,34 @@
-# dune init proj g4ip_prover
+# dune test
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Shared cache location: /home/frank/.cache/dune/db
 # Workspace root: /home/frank/Dox/projects/ocaml_prover/g4ip_prover
 # Auto-detected concurrency: 4
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; installed_env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/home/frank/Dox/projects/ocaml_prover/g4ip_prover/_build/default"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; instrument_with = []
+#  }
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_c96ab6_output
+$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl lib/g4ip.ml) > _build/default/lib/.g4ip_prover.objs/g4ip_prover__G4ip.impl.d
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.g4ip_prover.objs/byte -no-alias-deps -opaque -open G4ip_prover -o lib/.g4ip_prover.objs/byte/g4ip_prover__G4ip.cmo -c -impl lib/g4ip.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.test_g4ip_prover.eobjs/byte -I /home/frank/.opam/default/lib/ounit2 -I /home/frank/.opam/default/lib/ounit2/advanced -I /home/frank/.opam/default/lib/seq -I /home/frank/.opam/default/lib/stdlib-shims -I /usr/lib/ocaml/unix -I lib/.g4ip_prover.objs/byte -no-alias-deps -opaque -o test/.test_g4ip_prover.eobjs/byte/dune__exe__Test_g4ip_prover.cmi -c -intf test/test_g4ip_prover.mli)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.test_g4ip_prover.eobjs/byte -I test/.test_g4ip_prover.eobjs/native -I /home/frank/.opam/default/lib/ounit2 -I /home/frank/.opam/default/lib/ounit2/advanced -I /home/frank/.opam/default/lib/seq -I /home/frank/.opam/default/lib/stdlib-shims -I /usr/lib/ocaml/unix -I lib/.g4ip_prover.objs/byte -I lib/.g4ip_prover.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.test_g4ip_prover.eobjs/native/dune__exe__Test_g4ip_prover.cmx -c -impl test/test_g4ip_prover.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.g4ip_prover.objs/byte -I lib/.g4ip_prover.objs/native -intf-suffix .ml -no-alias-deps -opaque -open G4ip_prover -o lib/.g4ip_prover.objs/native/g4ip_prover__G4ip.cmx -c -impl lib/g4ip.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/g4ip_prover.cmxa lib/.g4ip_prover.objs/native/g4ip_prover.cmx lib/.g4ip_prover.objs/native/g4ip_prover__G4ip.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/test_g4ip_prover.exe /usr/lib/ocaml/unix/unix.cmxa /home/frank/.opam/default/lib/stdlib-shims/stdlib_shims.cmxa /home/frank/.opam/default/lib/ounit2/advanced/oUnitAdvanced.cmxa /home/frank/.opam/default/lib/ounit2/oUnit.cmxa lib/g4ip_prover.cmxa test/.test_g4ip_prover.eobjs/native/dune__exe__Test_g4ip_prover.cmx)
+$ (cd _build/default/test && ./test_g4ip_prover.exe)
+> ....
+> Ran: 4 tests in: 0.10 seconds.
+> OK
