@@ -1,4 +1,0 @@
-(lang dune 3.12)
-(name g4ip_prover)
-(sections (lib .) (bin ../../bin))
-(files (lib (META dune-package opam)) (bin (g4ip_prover)))

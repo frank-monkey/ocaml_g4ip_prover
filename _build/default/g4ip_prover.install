@@ -1,8 +1,0 @@
-lib: [
-  "_build/install/default/lib/g4ip_prover/META"
-  "_build/install/default/lib/g4ip_prover/dune-package"
-  "_build/install/default/lib/g4ip_prover/opam"
-]
-bin: [
-  "_build/install/default/bin/g4ip_prover"
-]
