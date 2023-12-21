@@ -19,18 +19,19 @@ and rInv (o, d, p) =
 
 and lInv (o, d, p) = 
   match o with 
-  | Atom(a) :: o' -> lInv (o', Atom(a)::d, p)
   | And(a, b) :: o' -> lInv(a::b::o', d, p)
-  | Or(a, b) :: o' -> lInv (o', d, a) || rInv (o', d, b)
+  | Or(a, b) :: o' -> lInv (a::o', d, p) && lInv (b::o', d, p)
   | Implies(True, a) :: o' -> lInv (a::o', d, p)
   | Implies(False, _) :: o' -> lInv (o', d, p)
   | Implies(And(a, b), c) :: o' -> lInv (Implies(a, Implies(b, c))::o', d, p)
-  | Implies(Atom(a), b) :: o' -> lInv (o', Implies(Atom(a), b)::d, p)
-  | Implies(Implies(a, b), c) :: o' -> lInv (o', Implies(Implies(a, b), c)::d, p)
+  | Implies(Or(a, b), c) :: o' -> lInv (Implies(a, c)::Implies(b, c)::o', d, p)
   | True :: o' -> lInv (o', d, p)
   | False :: _ -> true
   | [] -> searchR(d, p) || searchL([], d, p)
-  | _ -> raise UncaughtCase
+  (*Shift Cases*)
+  | Atom(a) :: o' -> lInv (o', Atom(a)::d, p)
+  | Implies(Atom(a), b) :: o' -> lInv (o', Implies(Atom(a), b)::d, p)
+  | Implies(Implies(a, b), c) :: o' -> lInv (o', Implies(Implies(a, b), c)::d, p)
 
 and searchR (d, p) =
   match p with
