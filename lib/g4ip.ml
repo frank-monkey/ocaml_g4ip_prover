@@ -6,8 +6,6 @@ type prop =
   | True
   | False
 
-exception UncaughtCase
-
 let rec prove (p : prop) : bool = rInv ([], [], p)
 
 and rInv (o, d, p) = 
